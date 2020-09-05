@@ -67,7 +67,7 @@
       <xacro:box_inertia length="0.0783" width="0.03801" height="0.0193" mass="0.015"/>
 
       <visual>
-        <origin xyz=" 0 0 0 " rpy="0 0 0"/>
+        <origin xyz="0 0 0 " rpy="0 0 0"/>
         <geometry>
           <mesh filename="package://turtlebot_arm_description/meshes/turtlebot_finger.stl" scale="${M_SCALE} ${M_SCALE} ${M_SCALE}"/>
         </geometry>
@@ -75,9 +75,9 @@
       </visual>
 
       <collision>
-        <origin xyz="0.02645 0.0 -0.00655" rpy="0 0 0"/>
+        <origin xyz="0 0 0 " rpy="0 0 0"/>
         <geometry>
-          <box size="0.0783 0.03801 0.0193"/>
+          <mesh filename="package://turtlebot_arm_description/meshes/turtlebot_finger.stl" scale="${M_SCALE} ${M_SCALE} ${M_SCALE}"/>
         </geometry>
       </collision>
     </link>
@@ -334,8 +334,8 @@
     </gazebo>
   </xacro:macro>
   
-    <xacro:macro name="pincher_gripper" params="name color *origin">
-      <link name="${name}_link">
+  <xacro:macro name="pincher_gripper" params="name color *origin">
+    <link name="${name}_link">
       <xacro:box_inertia length="0.036" width="0.028" height="0.004" mass="0.00001"/>
       <visual>
         <xacro:insert_block name="origin"/>
