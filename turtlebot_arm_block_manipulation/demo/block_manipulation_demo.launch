@@ -17,8 +17,8 @@
   </include>
 
   <!-- If we are not running the full robot, provide an arbitrary link between arm and 3D camera -->
-  <node if="$(arg publish_camera_tf)" pkg="tf" type="static_transform_publisher" name="link_arm_and_camera"
-                                     args="-0.211 -0.051 0.432 -0.000 0.712 0.020 /arm_base_link /camera_link 100"/>
+  <node if="$(arg publish_camera_tf)" pkg="tf2_ros" type="static_transform_publisher" name="link_arm_and_camera"
+                                     args="-0.211 -0.051 0.432 -0.000 0.712 0.020 arm_base_link camera_link"/>
 
   <include file="$(find turtlebot_arm_block_manipulation)/launch/block_manipulation.launch" />
 
