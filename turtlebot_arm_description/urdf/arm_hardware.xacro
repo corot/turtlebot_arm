@@ -67,7 +67,7 @@
       <xacro:box_inertia length="0.0783" width="0.03801" height="0.0193" mass="0.015"/>
 
       <visual>
-        <origin xyz="0 0 0 " rpy="0 0 0"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
           <mesh filename="package://turtlebot_arm_description/meshes/turtlebot_finger.stl" scale="${M_SCALE} ${M_SCALE} ${M_SCALE}"/>
         </geometry>
@@ -75,7 +75,7 @@
       </visual>
 
       <collision>
-        <origin xyz="0 0 0 " rpy="0 0 0"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
           <mesh filename="package://turtlebot_arm_description/meshes/turtlebot_finger.stl" scale="${M_SCALE} ${M_SCALE} ${M_SCALE}"/>
         </geometry>
@@ -86,6 +86,7 @@
       <material>Gazebo/${color}</material>
       <selfCollide>true</selfCollide>
       <gravity>true</gravity>
+      <minDepth>0.01</minDepth>
     </gazebo>
   </xacro:macro>
 
@@ -106,7 +107,7 @@
       </inertial>
 
       <visual>
-        <origin xyz=" 0 0 0 " rpy="0 0 0"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
           <mesh filename="package://turtlebot_arm_description/meshes/ax12_box.stl" scale="${M_SCALE} ${M_SCALE} ${M_SCALE}"/>
         </geometry>
@@ -139,7 +140,7 @@
       <xacro:box_inertia length="0.025" width="0.038" height="0.004" mass="0.004"/>
 
       <visual>
-        <origin xyz=" 0 0 0 " rpy="0 0 0"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
           <mesh filename="package://turtlebot_arm_description/meshes/F10.stl" scale="${M_SCALE} ${M_SCALE} ${M_SCALE}"/>
         </geometry>
@@ -172,7 +173,7 @@
       <xacro:box_inertia length="0.025" width="0.038" height="0.009" mass="0.005"/>
 
       <visual>
-        <origin xyz=" 0 0 0 " rpy="0 0 0"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
           <mesh filename="package://turtlebot_arm_description/meshes/F3.stl" scale="${M_SCALE} ${M_SCALE} ${M_SCALE}"/>
         </geometry>
@@ -208,7 +209,7 @@
       <xacro:box_inertia length="0.025" width="0.038" height="0.009" mass="0.008"/>
 
       <visual>
-        <origin xyz=" 0 0 0 " rpy="0 0 0"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
           <mesh filename="package://turtlebot_arm_description/meshes/F3.stl" scale="${M_SCALE} ${M_SCALE} ${M_SCALE}"/>
         </geometry>
@@ -244,7 +245,7 @@
       <xacro:box_inertia length="0.025" width="0.0485" height="0.0375" mass="0.010"/>
 
       <visual>
-        <origin xyz=" 0 0 0 " rpy="0 0 0"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
           <mesh filename="package://turtlebot_arm_description/meshes/F2.stl" scale="${M_SCALE} ${M_SCALE} ${M_SCALE}"/>
         </geometry>
@@ -280,7 +281,7 @@
       <xacro:box_inertia length="0.028" width="0.0485" height="0.065" mass="0.016"/>
 
       <visual>
-        <origin xyz=" 0 0 0 " rpy="0 0 0"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
           <mesh filename="package://turtlebot_arm_description/meshes/F4.stl" scale="${M_SCALE} ${M_SCALE} ${M_SCALE}"/>
         </geometry>
