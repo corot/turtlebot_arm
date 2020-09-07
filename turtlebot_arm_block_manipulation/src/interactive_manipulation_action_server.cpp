@@ -79,7 +79,7 @@ public:
     // Load parameters from the server.
     nh_.param<double>("bump_size", bump_size, 0.005);
     
-    // Register the goal and feeback callbacks.
+    // Register the goal and feedback callbacks.
     as_.registerGoalCallback(boost::bind(&InteractiveManipulationServer::goalCB, this));
     as_.registerPreemptCallback(boost::bind(&InteractiveManipulationServer::preemptCB, this));
     
@@ -221,7 +221,7 @@ public:
     InteractiveMarkerControl control;
     control.orientation.w = 1;
     control.orientation.x = 0;
-    control.orientation.y = 0;
+    control.orientation.y = 1;
     control.orientation.z = 0;
     control.interaction_mode = InteractiveMarkerControl::MOVE_PLANE;
     
