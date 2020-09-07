@@ -9,7 +9,7 @@
       <origin xyz="-0.02275 0 ${-AX12_WIDTH/2}" rpy="${M_PI} ${M_PI/2} 0"/>
     </xacro:dynamixel_AX12_fixed>
 
-    <!-- finger 1 -->
+    <!-- active finger -->
     <joint name="gripper_joint" type="revolute">
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <axis xyz="0 1 0"/>
@@ -43,10 +43,33 @@
       <origin xyz="0 0 ${F2_HEIGHT}" rpy="0 0 0"/>
     </xacro:finger_fixed>
 
-    <!-- finger 2 -->
-    <xacro:bioloid_F3_fixed parent="gripper_servo_link" name="gripper_static" color="${color}">
+    <!-- static finger -->
+    <!-- As explained here: https://github.com/jenniferBuehler/gazebo-pkgs/wiki/The-Gazebo-grasp-fix-plugin#Important, -->
+    <!-- we need to break the static links chain with a fake revolute joint to have an independent gripper_static_link -->
+    <!-- This is much more convenient when using the gazebo grasp fix plugin -->
+    <joint name="gripper_static_joint" type="revolute">
       <origin xyz="0 0 ${-AX12_HEIGHT-F10_HEIGHT+0.001}" rpy="0 ${M_PI} 0"/>
-    </xacro:bioloid_F3_fixed>
+      <axis xyz="0 1 0"/>
+      <limit effort="30" velocity="0.0" lower="0.0" upper="0.0"/>
+      <parent link="gripper_servo_link"/>
+      <child link="gripper_static_link"/>
+    </joint>
+    <link name="gripper_static_link">
+      <xacro:box_inertia length="0.025" width="0.038" height="0.009" mass="0.005"/>
+      <visual>
+        <origin xyz="0 0 0 " rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://turtlebot_arm_description/meshes/F3.stl" scale="${M_SCALE} ${M_SCALE} ${M_SCALE}"/>
+        </geometry>
+        <material name="${color}"/>
+      </visual>
+      <collision>
+        <origin xyz="0.0 0.0 -0.0045" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.025 0.038 0.009"/>
+        </geometry>
+      </collision>
+    </link>
     <xacro:finger_fixed parent="gripper_static_link" name="gripper_static_finger" color="${gripper_color}">
       <origin xyz="0 0 0" rpy="0 0 ${M_PI}"/>
     </xacro:finger_fixed>
