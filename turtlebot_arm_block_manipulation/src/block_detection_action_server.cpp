@@ -376,6 +376,7 @@ private:
     co.primitive_poses[0].position.x = table_pose_[0] + TABLE_SIZE_X/2.0;
     co.primitive_poses[0].position.y = table_pose_[1];
     co.primitive_poses[0].position.z = table_pose_[2] - TABLE_SIZE_Z/2.0;
+    co.primitive_poses[0].orientation.w = 1.0;
 
     ROS_INFO("Add the table as a collision object into the world");
     std::vector<moveit_msgs::CollisionObject> collision_objects(1, co);

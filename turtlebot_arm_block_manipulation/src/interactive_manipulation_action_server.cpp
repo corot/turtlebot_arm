@@ -219,9 +219,9 @@ public:
     marker.name = "block" + conv.str();
 
     InteractiveMarkerControl control;
-    control.orientation.w = 1;
+    control.orientation.w = 0.707106781;
     control.orientation.x = 0;
-    control.orientation.y = 1;
+    control.orientation.y = 0.707106781;
     control.orientation.z = 0;
     control.interaction_mode = InteractiveMarkerControl::MOVE_PLANE;
     
