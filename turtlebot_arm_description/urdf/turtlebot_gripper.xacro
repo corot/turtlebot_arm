@@ -18,13 +18,7 @@
       <child link="gripper_active_link"/>
     </joint>
     <link name="gripper_active_link">
-      <inertial>
-        <mass value="0.010"/>
-        <origin xyz="0 0 0"/>
-        <inertia ixx="0.000001" ixy="0.0" ixz="0.0"
-                 iyy="0.000001" iyz="0.0"
-                 izz="0.000001"/>
-      </inertial>
+      <xacro:box_inertia length="0.025" width="0.0485" height="0.0375" mass="0.010"/>
       <visual>
         <origin xyz=" 0 0 0 " rpy="0 0 0"/>
         <geometry>
@@ -57,7 +51,7 @@
     <link name="gripper_static_link">
       <xacro:box_inertia length="0.025" width="0.038" height="0.009" mass="0.005"/>
       <visual>
-        <origin xyz="0 0 0 " rpy="0 0 0"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
           <mesh filename="package://turtlebot_arm_description/meshes/F3.stl" scale="${M_SCALE} ${M_SCALE} ${M_SCALE}"/>
         </geometry>

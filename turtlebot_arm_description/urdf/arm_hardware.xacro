@@ -3,26 +3,27 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:property name="M_PI" value="3.14159"/>
   <xacro:property name="M_SCALE" value="0.001"/>
-  <xacro:property name="F10_HEIGHT" value="0.004"/>
-  <xacro:property name="F4_HEIGHT" value="0.0525"/>
+  <xacro:property name="F2_HEIGHT" value="0.0265"/>
   <xacro:property name="F3_HEIGHT" value="0.009"/>
+  <xacro:property name="F4_HEIGHT" value="0.0525"/>
+  <xacro:property name="F10_HEIGHT" value="0.004"/>
   <xacro:property name="AX12_HEIGHT" value="0.0385"/>
   <xacro:property name="AX12_WIDTH" value="0.038"/>
   <xacro:property name="AX12_LENGTH" value="0.050"/>
-  <xacro:property name="F2_HEIGHT" value="0.0265"/>
 
   <!-- Calculates the inertial properties of a bounding box. From
        https://en.wikipedia.org/wiki/List_of_moments_of_inertia#List_of_3D_inertia_tensors-->
-  <xacro:macro name="box_inertia" params="length width height mass">
+  <xacro:macro name="box_inertia" params="length width height mass x=0 y=0 z=0">
     <inertial>
       <mass value="${mass}"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="${mass/12*(height**2+length**2)}" ixy="0" ixz = "0"
-               iyy="${mass/12*(width**2+length**2)}" iyz="0"
-               izz="${mass/12*(width**2+height**2)}"/>
+      <origin xyz="${x} ${y} ${z}"/>
+      <inertia ixx="${mass/12*(width**2+height**2)}" ixy="0" ixz="0"
+               iyy="${mass/12*(length**2+height**2)}" iyz="0"
+               izz="${mass/12*(width**2+length**2)}"/>
+
+
     </inertial>
   </xacro:macro>
-
   <xacro:macro name="arm_mount" params="parent name color *origin">
     <joint name="${name}_joint" type="fixed">
       <xacro:insert_block name="origin"/>
@@ -98,13 +99,7 @@
     </joint>
 
     <link name="${name}_link">
-      <inertial>
-        <mass value="0.055"/>
-        <origin xyz="0 0 0"/>
-        <inertia ixx="0.000017012" ixy="0.0" ixz="0.0"
-                 iyy="0.000013258" iyz="0.0"
-                 izz="0.000009483"/>
-      </inertial>
+      <xacro:box_inertia length="${AX12_HEIGHT}" width="${AX12_WIDTH}" height="${AX12_LENGTH}" mass="0.055" z="-0.01241"/>
 
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -117,11 +112,10 @@
       <collision>
         <origin xyz="0.0 0.0 -0.01241" rpy="0 0 0"/>
         <geometry>
-          <box size="0.025 0.038 0.04762"/>
+          <box size="${AX12_HEIGHT} ${AX12_WIDTH} ${AX12_LENGTH}"/>
         </geometry>
       </collision>
     </link>
-    
     <gazebo reference="${name}_link">
       <material>Gazebo/Black</material>
       <selfCollide>true</selfCollide>
@@ -223,7 +217,7 @@
         </geometry>
       </collision>
     </link>
-    
+
     <gazebo reference="${name}_link">
       <material>Gazebo/${color}</material>
       <selfCollide>true</selfCollide>
