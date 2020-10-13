@@ -10,6 +10,7 @@
   <xacro:property name="AX12_HEIGHT" value="0.0385"/>
   <xacro:property name="AX12_WIDTH" value="0.038"/>
   <xacro:property name="AX12_LENGTH" value="0.050"/>
+  <xacro:property name="AX12_RANGE" value="5.236"/>  <!-- 300 degrees -->
 
   <!-- Calculates the inertial properties of a bounding box. From
        https://en.wikipedia.org/wiki/List_of_moments_of_inertia#List_of_3D_inertia_tensors-->
