@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <library path="lib/libturtlebot_arm_arm_moveit_ikfast_plugin">
-  <class name="turtlebot_arm_arm_kinematics/IKFastKinematicsPlugin" type="ikfast_kinematics_plugin::IKFastKinematicsPlugin" base_class_type="kinematics::KinematicsBase">
-    <description>IKFast61 plugin for closed-form kinematics</description>
+  <class base_class_type="kinematics::KinematicsBase" name="turtlebot_arm_arm/IKFastKinematicsPlugin" type="turtlebot_arm_arm::IKFastKinematicsPlugin">
+    <description>IKFast61 plugin for closed-form kinematics of turtlebot_arm arm</description>
   </class>
 </library>

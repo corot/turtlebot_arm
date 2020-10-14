@@ -1,31 +1,26 @@
-<?xml version='1.0' encoding='ASCII'?>
-<package>
+<?xml version='1.0' encoding='UTF-8'?>
+<package format="2">
   <name>turtlebot_arm_ikfast_plugin</name>
   <version>0.3.3</version>
-  <description>The turtlebot_arm_ikfast_plugin package</description>
+  <description>IKFast plugin for turtlebot_arm</description>
   <maintainer email="jsantossimon@gmail.com">Jorge Santos</maintainer>
   <license>BSD</license>
-
   <url type="website">http://ros.org/wiki/turtlebot_arm_ikfast_plugin</url>
   <url type="repository">https://github.com/turtlebot/turtlebot_arm</url>
   <url type="bugtracker">https://github.com/turtlebot/turtlebot_arm/issues</url>
-
   <buildtool_depend>catkin</buildtool_depend>
-
   <build_depend>moveit_core</build_depend>
+  <build_depend>tf2_kdl</build_depend>
+  <build_depend>pluginlib</build_depend>
+  <build_depend>eigen_conversions</build_depend>
+  <build_depend>tf2_eigen</build_depend>
   <build_depend>liblapack-dev</build_depend>
-  <build_depend>pluginlib</build_depend>
   <build_depend>roscpp</build_depend>
-  <build_depend>tf_conversions</build_depend>
-  <build_depend>pluginlib</build_depend>
-
-  <run_depend>liblapack-dev</run_depend>
-  <run_depend>moveit_core</run_depend>
-  <run_depend>pluginlib</run_depend>
-  <run_depend>roscpp</run_depend>
-  <run_depend>tf_conversions</run_depend>
-  <run_depend>pluginlib</run_depend>
-
+  <exec_depend>moveit_core</exec_depend>
+  <exec_depend>pluginlib</exec_depend>
+  <exec_depend>liblapack-dev</exec_depend>
+  <exec_depend>roscpp</exec_depend>
+  <exec_depend>eigen_conversions</exec_depend>
   <export>
     <moveit_core plugin="${prefix}/turtlebot_arm_moveit_ikfast_plugin_description.xml"/>
   </export>
